@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: #1a1a2e;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #eee;
+}
+
+.game-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 100%;
+}
+
+.board-section {
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.board-wrapper {
+  position: relative;
+  line-height: 0;
+}
+
+#game-board {
+  display: block;
+  width: min(300px, calc(100vw - 180px));
+  height: auto;
+  aspect-ratio: 1 / 2;
+  max-height: 80vh;
+  background-color: #000;
+  border: 2px solid #444;
+}
+
+.game-over-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 2px solid #444;
+}
+
+.game-over-overlay.hidden {
+  display: none;
+}
+
+.game-over-text {
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+#restart-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e94560;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#restart-btn:hover {
+  background-color: #ff6b81;
+}
+
+#restart-btn:active {
+  transform: scale(0.97);
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.info-box {
+  background-color: #16213e;
+  border: 2px solid #444;
+  border-radius: 4px;
+  padding: 16px;
+  text-align: center;
+}
+
+.info-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+.info-value {
+  font-size: 2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.next-box canvas {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  background-color: #000;
+  border: 1px solid #333;
+}
+
+@media (max-width: 640px) {
+  .game-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  #game-board {
+    width: min(300px, calc(100vw - 32px));
+    max-height: 65vh;
+  }
+
+  .side-panel {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .info-box {
+    flex: 1 1 100px;
+    padding: 12px;
+  }
+
+  .info-value {
+    font-size: 1.5rem;
+  }
+}
